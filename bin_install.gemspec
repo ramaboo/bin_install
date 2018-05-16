@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.author       = 'David Singer'
   spec.email         = 'david@ramaboo.com'
 
-  spec.summary       = 'A DSL for writing install scripts.'
-  spec.description   = 'A DSL for writing install scripts.'
+  spec.summary       = 'Rails DSL for creating install scripts.'
+  spec.description   = 'Rails DSL for creating install scripts.'
   spec.homepage      = 'https://github.com/ramaboo/bin_install'
   spec.license       = 'MIT'
 
