@@ -26,13 +26,7 @@ Will create the following files:
 
 Most methods in this library have also have a bang version that will halt all further execution. No bang methods will only display the error output of the command but execution will continue.
 
-## Modules
-
-Commands are divided into modules:
-
-### Brew
-
-Handles everything related to [Homebrew](https://brew.sh/).
+### [Homebrew](https://brew.sh/)
 
 Require [Homebrew](https://brew.sh/) before continuing:
 
@@ -40,67 +34,59 @@ Require [Homebrew](https://brew.sh/) before continuing:
 
 Update [Homebrew](https://brew.sh/):
 
-    BinInstall::Brew.update # or BinInstall::Brew.update!
+    BinInstall::Brew.update # or update!
 
 Install [Homebrew](https://brew.sh/) package:
 
-    BinInstall::Brew.install('package') # or BinInstall::Brew.install!('package')
+    BinInstall::Brew.install('package') # or install!('package')
 
 Upgrade [Homebrew](https://brew.sh/) package:
 
-    BinInstall::Brew.upgrade('package') # or BinInstall::Brew.upgrade!('package')
+    BinInstall::Brew.upgrade('package') # upgrade!('package')
 
 Install or Upgrade with one command:
 
-    BinInstall::Brew.install_or_upgrade('package') # or BinInstall::Brew.install_or_upgrade!('package')
+    BinInstall::Brew.install_or_upgrade('package') # or install_or_upgrade!('package')
 
-### Gem
-
-Handles [gems](https://rubygems.org/).
+### [Gems](https://rubygems.org/)
 
 Install all [gems](https://rubygems.org/) with:
 
-    BinInstall::Gem.install # or BinInstall::Gem.install!
+    BinInstall::Gem.install # or install!
 
-### Node
-
-Handles [Node.js](https://nodejs.org/en/).
+### [Node](https://nodejs.org/en/)
 
 Install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/en/) with:
 
-    BinInstall::Node.install # or BinInstall::Node.install!
+    BinInstall::Node.install # or install!
 
 Upgrade [Yarn](https://yarnpkg.com/en/) with:
 
-    BinInstall::Node.upgrade_yarn # or BinInstall::Node.upgrade_yarn!
+    BinInstall::Node.upgrade_yarn # or upgrade_yarn!
 
-### Postgres
-
-Handles [PostgreSQL](https://www.postgresql.org/).
+### [PostgreSQL](https://www.postgresql.org/)
 
 Install [PostgreSQL](https://www.postgresql.org/) with:
 
-    BinInstall::Postgres.install # or BinInstall::Postgres.install!
+    BinInstall::Postgres.install # or install!
 
 Create default user (username: postgres, blank password):
 
-    BinInstall::Postgres.create_default_user # or BinInstall::Postgres.create_default_user!
+    BinInstall::Postgres.create_default_user # or create_default_user!
 
-### Rails
-
-Handles [Rails](https://rubyonrails.org/).
+### [Rails](https://rubyonrails.org/)
 
 Setup database with:
 
-    BinInstall::Rails.db_setup # or BinInstall::Rails.db_setup!
+    BinInstall::Rails.db_setup # or db_setup!
 
 Migrate database with:
 
-    BinInstall::Rails.db_migrate # or BinInstall::Rails.db_migrate!
+    BinInstall::Rails.db_migrate # db_migrate!
 
 Clear log and tmp files:
 
-    BinInstall::Rails.clear # or BinInstall::Rails.clear!
+    BinInstall::Rails.clear # or clear!
 
 ### Server
 
