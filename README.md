@@ -2,7 +2,7 @@
 
 Rails DSL for creating install scripts.
 
-It's used at (Deliv)[https://www.deliv.co/] to increase developer happiness.
+It's used at [Deliv](https://www.deliv.co/) to increase developer happiness.
 
 ## Installation
 
