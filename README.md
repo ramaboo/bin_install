@@ -16,17 +16,17 @@ To create install scripts run:
 
     $ rails generate bin_install:install
 
-Will create the following files:
+Will create the following files with some common defaults:
 
   * `bin/install`
   * `bin/update`
   * `bin/kill`
 
-## Bang! vs No bang
+## Bang! vs No Bang
 
 Most methods in this library have also have a bang version that will halt all further execution. No bang methods will only display the error output of the command but execution will continue.
 
-### [Homebrew](https://brew.sh/)
+### [Brew](https://brew.sh/)
 
 Require [Homebrew](https://brew.sh/) before continuing:
 
@@ -48,7 +48,7 @@ Install or Upgrade with one command:
 
     BinInstall::Brew.install_or_upgrade('package') # or install_or_upgrade!('package')
 
-### [Gems](https://rubygems.org/)
+### [Gem](https://rubygems.org/)
 
 Install all [gems](https://rubygems.org/) with:
 
@@ -64,13 +64,13 @@ Upgrade [Yarn](https://yarnpkg.com/en/) with:
 
     BinInstall::Node.upgrade_yarn # or upgrade_yarn!
 
-### [PostgreSQL](https://www.postgresql.org/)
+### [Postgres](https://www.postgresql.org/)
 
 Install [PostgreSQL](https://www.postgresql.org/) with:
 
     BinInstall::Postgres.install # or install!
 
-Create default user (username: postgres, blank password):
+Create a user with the username *postgres* and a blank password:
 
     BinInstall::Postgres.create_default_user # or create_default_user!
 
