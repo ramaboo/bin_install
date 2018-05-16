@@ -12,6 +12,28 @@ Add this line to your application's Gemfile:
 
 ## Usage
 
-To create a sample install script run:
+To create install scripts run:
 
     $ rails generate bin_install:install
+
+Will create the following files:
+
+  * `bin/install`
+  * `bin/update`
+  * `bin/kill`
+
+## Modules
+
+Commands are divided into modules:
+
+#### Brew
+
+Handles everything related to [Homebrew](https://brew.sh/).
+
+* Require [Homebrew](https://brew.sh/) before continuing.
+
+    BinInstall::Brew.require!
+
+* Update [Homebrew](https://brew.sh/).
+
+    BinInstall::Brew.update!
