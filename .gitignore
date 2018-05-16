@@ -12,3 +12,4 @@
 /spec/reports/
 /tmp/
 /_yardoc/
+Gemfile.lock
