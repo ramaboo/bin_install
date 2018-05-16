@@ -1,6 +1,6 @@
 # BinInstall
 
-Rails DSL for creating install scripts.
+Simple DSL for creating install scripts.
 
 It's used at [Deliv](https://www.deliv.co/) to increase developer happiness.
 
