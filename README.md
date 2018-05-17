@@ -26,7 +26,7 @@ Will create the following files with some common defaults:
 
 Most methods in this library have also have a bang version that will halt all further execution. No bang methods will only display the error output of the command but execution will continue.
 
-### [Brew](https://brew.sh/)
+### Brew
 
 Require [Homebrew](https://brew.sh/) before continuing:
 
@@ -48,13 +48,19 @@ Install or Upgrade with one command:
 
     BinInstall::Brew.install_or_upgrade('package') # or install_or_upgrade!('package')
 
-### [Gem](https://rubygems.org/)
+### Gem
 
 Install all [gems](https://rubygems.org/) with:
 
     BinInstall::Gem.install # or install!
 
-### [Node](https://nodejs.org/en/)
+### Mysql
+
+Install [MySQL](https://www.mysql.com/) with:
+
+    BinInstall::Mysql.install # or install!
+
+### Node
 
 Install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/en/) with:
 
@@ -64,17 +70,21 @@ Upgrade [Yarn](https://yarnpkg.com/en/) with:
 
     BinInstall::Node.upgrade_yarn # or upgrade_yarn!
 
-### [Postgres](https://www.postgresql.org/)
+### Postgres
 
 Install [PostgreSQL](https://www.postgresql.org/) with:
 
     BinInstall::Postgres.install # or install!
 
-Create a user with the username *postgres* and a blank password:
+Create a user with a username and blank password:
 
-    BinInstall::Postgres.create_default_user # or create_default_user!
+    BinInstall::Postgres.create_user('username') # or create_user!('username')
 
-### [Rails](https://rubyonrails.org/)
+Create a superuser with a username and blank password:
+
+    BinInstall::Postgres.create_superuser('username') # or create_superuser!('username')
+
+### Rails
 
 Setup database with:
 

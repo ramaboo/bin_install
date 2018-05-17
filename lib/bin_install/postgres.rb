@@ -3,21 +3,27 @@ module BinInstall
     def self.install
       puts 'Installing PostgreSQL...'.white
       Brew.install_or_upgrade('postgresql')
-      create_default_user
     end
 
     def self.install!
       puts 'Installing PostgreSQL...'.white
       Brew.install_or_upgrade!('postgresql')
-      create_default_user!
     end
 
-    def self.create_default_user
-      system('createuser -s postgres')
+    def self.create_superuser(username = 'postgres')
+      system("createuser --superuser #{username}")
     end
 
-    def self.create_default_user!
-      BinInstall.system!('createuser -s postgres')
+    def self.create_superuser!(username = 'postgres')
+      BinInstall.system!("createuser --superuser #{username}")
+    end
+
+    def self.create_user(username = 'postgres')
+      system("createuser #{username}")
+    end
+
+    def self.create_user!(username = 'postgres')
+      BinInstall.system!("createuser #{username}")
     end
   end
 end
