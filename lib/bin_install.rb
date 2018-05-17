@@ -5,6 +5,7 @@ require 'bin_install/gem'
 require 'bin_install/node'
 require 'bin_install/postgres'
 require 'bin_install/rails'
+require 'bin_install/ruby_environment_manager'
 require 'bin_install/server'
 require 'bin_install/version'
 

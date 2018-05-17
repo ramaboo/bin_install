@@ -88,11 +88,17 @@ Clear log and tmp files:
 
     BinInstall::Rails.clear # or clear!
 
+### RubyEnvironmentManager
+
+Install [rbenv](https://github.com/rbenv/rbenv) unless [RVM](https://rvm.io/) is installed with:
+
+    BinInstall::RubyEnvironmentManager.install # or install!
+
 ### Server
 
 Forcefully kill the server with:
 
-    BinInstall::Server.kill!
+    BinInstall::Server.kill # or kill!
 
 ## Contributing
 
