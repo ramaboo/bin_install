@@ -5,11 +5,13 @@ module BinInstall
     def self.db_setup
       puts 'Preparing database...'.white
       rails_or_rake('db:setup')
+      rails_or_rake!('db:setup RAILS_ENV=test')
     end
 
     def self.db_setup!
       puts 'Preparing database...'.white
       rails_or_rake!('db:setup')
+      rails_or_rake!('db:setup RAILS_ENV=test')
     end
 
     def self.db_migrate
@@ -38,7 +40,7 @@ module BinInstall
       if rails5?
         system("bin/rails #{command}")
       else
-        system("rake #{command}")
+        system("bin/rake #{command}")
       end
     end
 
@@ -46,7 +48,7 @@ module BinInstall
       if rails5?
         BinInstall.system!("bin/rails #{command}")
       else
-        BinInstall.system!("rake #{command}")
+        BinInstall.system!("bin/rake #{command}")
       end
     end
 

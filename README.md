@@ -54,6 +54,12 @@ Install all [gems](https://rubygems.org/) with:
 
     BinInstall::Gem.install # or install!
 
+### Git
+
+Install [Git](https://git-scm.com/) with:
+
+    BinInstall::Git.install # or install!
+
 ### Mysql
 
 Install [MySQL](https://www.mysql.com/) with:
@@ -109,6 +115,12 @@ Migrate database with:
 Clear log and tmp files:
 
     BinInstall::Rails.clear # or clear!
+
+### Redis
+
+Install [Redis](https://redis.io/) with:
+
+    BinInstall::Redis.install # or install!
 
 ### RubyEnvironmentManager
 
