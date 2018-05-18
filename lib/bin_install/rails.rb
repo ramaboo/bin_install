@@ -1,33 +1,57 @@
+require 'rails'
+
 module BinInstall
   module Rails
     def self.db_setup
       puts 'Preparing database...'.white
-      system('bin/rails db:setup')
+      rails_or_rake('db:setup')
     end
 
     def self.db_setup!
       puts 'Preparing database...'.white
-      BinInstall.system!('bin/rails db:setup')
+      rails_or_rake!('db:setup')
     end
 
     def self.db_migrate
       puts 'Migrating database...'.white
-      system('bin/rails db:migrate')
+      rails_or_rake('db:migrate')
     end
 
     def self.db_migrate!
       puts 'Migrating database...'.white
-      BinInstall.system!('bin/rails db:migrate')
+      rails_or_rake!('db:migrate')
     end
 
     def self.clear
       puts 'Removing unnecessary files...'.white
-      system('bin/rails log:clear tmp:clear')
+      rails_or_rake('log:clear')
+      rails_or_rake('tmp:clear')
     end
 
-    def self.clear
+    def self.clear!
       puts 'Removing unnecessary files...'.white
-      BinInstall.system!('bin/rails log:clear tmp:clear')
+      rails_or_rake!('log:clear')
+      rails_or_rake!('tmp:clear')
+    end
+
+    def self.rails_or_rake(command)
+      if rails5?
+        system("bin/rails #{command}")
+      else
+        system("rake #{command}")
+      end
+    end
+
+    def self.rails_or_rake!(command)
+      if rails5?
+        BinInstall.system!("bin/rails #{command}")
+      else
+        BinInstall.system!("rake #{command}")
+      end
+    end
+
+    def self.rails5?
+      ::Rails::VERSION::MAJOR >= 5
     end
   end
 end

@@ -16,7 +16,7 @@ module BinInstall
 
       def copy_bin_file(file)
         copy_file file, "bin/#{file}"
-        FileUtils.chmod(0744, "bin/#{file}")
+        FileUtils.chmod(0o744, "bin/#{file}")
       end
     end
   end

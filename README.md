@@ -66,9 +66,13 @@ Install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/en/) wi
 
     BinInstall::Node.install # or install!
 
-Upgrade [Yarn](https://yarnpkg.com/en/) with:
+Install packages with:
 
-    BinInstall::Node.upgrade_yarn # or upgrade_yarn!
+    BinInstall::Node.yarn_install # or yarn_install!
+
+Upgrade packages with:
+
+    BinInstall::Node.yarn_upgrade # or yarn_upgrade!
 
 ### Postgres
 
