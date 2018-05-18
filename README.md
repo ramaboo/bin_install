@@ -60,6 +60,14 @@ Install [MySQL](https://www.mysql.com/) with:
 
     BinInstall::Mysql.install # or install!
 
+Create root user with blank password:
+
+    BinInstall::Mysql.create_root # or create_root!
+
+Create user with username and password:
+
+   BinInstall::Mysql.create_user('username', 'password')
+
 ### Node
 
 Install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/en/) with:
