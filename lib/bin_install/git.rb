@@ -26,7 +26,7 @@ module BinInstall
       end
     end
 
-    def remote?(name)
+    def self.remote?(name)
       system("git remote get-url #{name}")
     end
   end

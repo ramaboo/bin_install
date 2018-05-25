@@ -1,3 +1,5 @@
+require 'bin_install/brew/cask'
+
 module BinInstall
   module Brew
     def self.require!
@@ -11,24 +13,24 @@ module BinInstall
     def self.update
       puts 'Updating Homebrew...'.white
       system('brew update')
-      system('brew tap caskroom/cask')
+      Cask.tap
     end
 
     def self.update!
       puts 'Updating Homebrew...'.white
       BinInstall.system!('brew update')
-      BinInstall.system!('brew tap caskroom/cask')
+      Cask.tap!
     end
 
-    def self.install(package)
+    def self.install_package(package)
       system("brew install #{package}")
     end
 
-    def self.install!(package)
+    def self.install_package!(package)
       BinInstall.system!("brew install #{package}")
     end
 
-    def self.upgrade(package)
+    def self.upgrade_package(package)
       if package_latest_version?(package)
         puts "#{package} is already the latest version. Skipping.".blue
       else
@@ -36,7 +38,7 @@ module BinInstall
       end
     end
 
-    def self.upgrade!(package)
+    def self.upgrade_package!(package)
       if package_latest_version?(package)
         puts "#{package} is already the latest version. Skipping.".blue
       else
@@ -46,17 +48,17 @@ module BinInstall
 
     def self.install_or_upgrade(package)
       if package_installed?(package)
-        upgrade(package)
+        upgrade_package(package)
       else
-        install(package)
+        install_package(package)
       end
     end
 
     def self.install_or_upgrade!(package)
       if package_installed?(package)
-        upgrade!(package)
+        upgrade_package!(package)
       else
-        install!(package)
+        install_package!(package)
       end
     end
 

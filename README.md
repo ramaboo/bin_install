@@ -26,6 +26,20 @@ Will create the following files with some common defaults:
 
 Most methods in this library have also have a bang version that will halt all further execution. No bang methods will only display the error output of the command but execution will continue.
 
+### Atom
+
+Install [Atom](https://atom.io/):
+
+    BinInstall::Atom.install # or install!
+
+Ask before installing [Atom](https://atom.io/):
+
+    BinInstall::Atom.ask # or ask!
+
+Ask before installing common [packages](https://atom.io/packages):
+
+    BinInstall::Atom.ask_install_common_packages # or ask_install_common_packages!
+
 ### Brew
 
 Require [Homebrew](https://brew.sh/) before continuing:
@@ -38,11 +52,11 @@ Update [Homebrew](https://brew.sh/):
 
 Install [Homebrew](https://brew.sh/) package:
 
-    BinInstall::Brew.install('package') # or install!('package')
+    BinInstall::Brew.install_package('package') # or install_package!('package')
 
 Upgrade [Homebrew](https://brew.sh/) package:
 
-    BinInstall::Brew.upgrade('package') # upgrade!('package')
+    BinInstall::Brew.upgrade_package('package') # upgrade_package!('package')
 
 Install or Upgrade with one command:
 
@@ -137,3 +151,9 @@ Forcefully kill the server with:
 ## Contributing
 
 All pull requests must pass [RuboCop](https://github.com/bbatsov/rubocop).
+
+# TODO
+
+- [] GitHub SSH stuff
+- [] Mysql dev stuff
+- [] test brew install without root
