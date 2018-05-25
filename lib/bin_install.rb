@@ -6,12 +6,15 @@ require 'bin_install/gem'
 require 'bin_install/git'
 require 'bin_install/mysql'
 require 'bin_install/node'
+require 'oh_my_zsh'
 require 'bin_install/postgres'
 require 'bin_install/rails'
+require 'bin_install/redis'
 require 'bin_install/ruby_environment_manager'
 require 'bin_install/server'
 require 'bin_install/shell'
 require 'bin_install/version'
+require 'bin_install/xcode'
 
 module BinInstall
   def self.system!(*args)
