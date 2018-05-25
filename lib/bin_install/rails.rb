@@ -1,5 +1,3 @@
-require 'rails'
-
 module BinInstall
   module Rails
     def self.db_setup
@@ -53,6 +51,8 @@ module BinInstall
     end
 
     def self.rails5?
+      true
+      # FIX
       ::Rails::VERSION::MAJOR >= 5
     end
   end

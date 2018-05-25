@@ -5,9 +5,10 @@ APP_ROOT = File.expand_path('..', __dir__)
 
 Dir.chdir(APP_ROOT) do
   BinInstall::Brew.require!
+  BinInstall::OhMyZsh.install
+  BinInstall::RubyEnvironmentManager.install
   BinInstall::Gem.install!
   BinInstall::Git.install
-  BinInstall::RubyEnvironmentManager.install
   BinInstall::Postgres.install
   BinInstall::Postgres.create_superuser('postgres')
   BinInstall::Node.install

@@ -6,6 +6,7 @@ module BinInstall
 
         if version
           system("rvm install #{version}")
+          system("rvm use #{version}")
         else
           puts 'Unknown Ruby version. Create `.ruby-version` file.'
         end
@@ -16,6 +17,7 @@ module BinInstall
 
         if version
           BinInstall.system!("rvm install #{version}")
+          BinInstall.system!("rvm use #{version}")
         else
           abort('Unknown Ruby version. Create `.ruby-version` file.')
         end

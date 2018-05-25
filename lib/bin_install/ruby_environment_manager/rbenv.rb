@@ -20,6 +20,8 @@ module BinInstall
 
         if version
           system("rbenv install #{version}")
+          File.open(Shell.profile, 'a') { |f| puts 'eval "$(rbenv init -)"' }
+          system("source #{Shell.profile}")
         else
           puts 'Unknown Ruby version. Create `.ruby-version` file.'
         end

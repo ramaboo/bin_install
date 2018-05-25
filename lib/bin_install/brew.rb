@@ -6,7 +6,7 @@ module BinInstall
       if installed?
         update!
       else
-        abort('Homebrew is required! Visit https://brew.sh/ to install.'.red)
+        abort('Homebrew is required. Visit https://brew.sh/ to install.'.red)
       end
     end
 

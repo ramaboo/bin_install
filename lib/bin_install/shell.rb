@@ -19,5 +19,10 @@ module BinInstall
     def self.executable_exists?(executable)
       system("which #{executable}")
     end
+
+    def self.profile
+      # TODO: Support .bash_profile as well.
+      '~/.zshrc'
+    end
   end
 end
