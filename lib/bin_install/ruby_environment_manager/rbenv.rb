@@ -1,6 +1,6 @@
 module BinInstall
   module RubyEnvironmentManager
-    module Rbevn
+    module Rbenv
       def self.install(version = nil)
         puts 'Installing rbenv...'.white
         Brew.install_or_upgrade('rbenv')
