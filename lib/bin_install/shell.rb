@@ -22,7 +22,7 @@ module BinInstall
 
     def self.profile
       # TODO: Support .bash_profile as well.
-      '~/.zshrc'
+      File.expand_path('~/.zshrc')
     end
   end
 end
