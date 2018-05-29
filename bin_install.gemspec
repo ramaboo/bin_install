@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'david@ramaboo.com'
 
   spec.summary       = 'Simple DSL for creating install scripts.'
-  spec.description   = 'Simple DSL for creating install scripts.'
+  spec.description   = 'Create install scripts without the complexity of shell commands.'
   spec.homepage      = 'https://github.com/ramaboo/bin_install'
   spec.license       = 'MIT'
 
@@ -24,8 +24,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'awesome_print', '~> 1.8'
 
   spec.add_development_dependency 'bundler', '~> 1.16'
-  spec.add_development_dependency 'pry', '>= 0.10.0'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'pry', '~> 0.11'
+  spec.add_development_dependency 'rake', '~> 12'
   spec.add_development_dependency 'rspec', '~> 3.6'
   spec.add_development_dependency 'rubocop', '~> 0.56.0'
 end

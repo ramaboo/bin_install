@@ -24,7 +24,7 @@ module BinInstall
       end
 
       def self.installed?
-        system('rvm --version')
+        Shell.executable_exists?('rvm')
       end
     end
   end

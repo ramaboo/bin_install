@@ -63,7 +63,7 @@ module BinInstall
     end
 
     def self.installed?
-      system('brew --version')
+      Shell.executable_exists?('brew')
     end
 
     def self.package_installed?(package)
