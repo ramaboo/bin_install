@@ -3,23 +3,7 @@ require 'bin_install/brew/cask'
 module BinInstall
   module Brew
     def self.require!
-      puts 'd1'
-      system 'source /Users/david/.zshrc'
-
-            puts 'moo'
-            puts `echo $SHELL`
-            puts 'foo'
-            puts `echo $0`
-
-            puts 'now system'
-            system 'echo $SHELL'
-            system 'echo $0'
-            puts 'done'
-
-            system `zsh -c "echo $0"`
-            system `zsh -c "echo $SHELL"`
-
-      puts 'd2'
+      system('gem list')
       abort('stop')
       if installed?
         update!
