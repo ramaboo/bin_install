@@ -32,6 +32,10 @@ module BinInstall
     end
 
     def self.loaded?
+      puts 'moo'
+      puts `echo $SHELL`
+      puts 'foo'
+      puts `echo $0`
       `echo $0` == 'zsh'
     end
   end
