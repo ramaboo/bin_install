@@ -8,7 +8,14 @@ module BinInstall
       puts 'Installing Oh My Zsh...'.white
       system('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"')
       puts 'h1'
-      system('zsh')
+
+      if installed?
+        puts 'installed'
+      else
+        puts 'not installed'
+        puts 'restarting'
+        system('zsh')
+      end
       puts 'h2'
     end
 
