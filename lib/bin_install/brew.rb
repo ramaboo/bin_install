@@ -6,7 +6,7 @@ module BinInstall
       if installed?
         update!
       else
-        abort('Homebrew is required. Visit https://brew.sh/ to install.'.red)
+        abort(%{Homebrew is required. Visit https://brew.sh/ for more information.\nInstall: `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`}.red)
       end
     end
 
