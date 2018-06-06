@@ -9,10 +9,10 @@ module BinInstall
       system('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"')
       puts 'h1'
 
-      if installed?
-        puts 'installed'
+      if loaded?
+        puts 'loaded'
       else
-        puts 'not installed'
+        puts 'not loaded'
         puts 'restarting'
         system('zsh')
       end
@@ -29,6 +29,10 @@ module BinInstall
 
     def self.installed?
       Shell.executable_exists?('zsh')
+    end
+
+    def self.loaded?
+      `echo $0` == 'zsh'
     end
   end
 end
