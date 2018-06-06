@@ -1,12 +1,13 @@
 module BinInstall
   module RubyEnvironmentManager
     module Rbenv
+
       def self.install(version = nil)
         puts 'Installing rbenv...'.white
         Brew.install_or_upgrade('rbenv')
         Brew.install_or_upgrade('ruby-build')
-        File.open(Shell.profile, 'a') { |f| f << %{eval "$(rbenv init -)"\n} }
-
+        Shell.append_to_profile(%{eval "$(rbenv init -)"\n})
+        system('eval "$(rbenv init -)"')
         install_ruby(version)
         version
         rehash
@@ -17,12 +18,13 @@ module BinInstall
         puts 'Installing rbenv...'.white
         Brew.install_or_upgrade!('rbenv')
         Brew.install_or_upgrade!('ruby-build')
+        Shell.append_to_profile(%{eval "$(rbenv init -)"\n})
+        BinInstall.system!('eval "$(rbenv init -)"')
 
         install_ruby!(version)
         version!
         rehash!
         doctor!
-
       end
 
       def self.install_ruby(version = nil)
