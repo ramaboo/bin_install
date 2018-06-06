@@ -21,7 +21,7 @@ module BinInstall
     end
 
     def self.append_to_profiles(value)
-      profile_filenames.each |filename| do
+      profile_filenames.each do |filename|
         file = File.open(filename, 'a+')
         contents = file.read
         file << value unless contents.include?(value)
