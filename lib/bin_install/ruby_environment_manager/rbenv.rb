@@ -8,37 +8,73 @@ module BinInstall
         File.open(Shell.profile, 'a') { |f| f << %{eval "$(rbenv init -)"\n} }
 
         install_ruby(version)
-        system('rbenv rehash')
+        version
+        rehash
+        doctor
       end
 
       def self.install!(version = nil)
         puts 'Installing rbenv...'.white
         Brew.install_or_upgrade!('rbenv')
         Brew.install_or_upgrade!('ruby-build')
-        File.open(Shell.profile, 'a') { |f| f << %{eval "$(rbenv init -)"\n} }
 
         install_ruby!(version)
-        Brew.install!('rbenv rehash')
+        version!
+        rehash!
+        doctor!
+
       end
 
       def self.install_ruby(version = nil)
-        version ||= RubyEnvironmentManager.ruby_version
+        version ||= RubyEnvironmentManager.required_ruby_version
 
         if version
-          system("rbenv install #{version}")
+          if RubyEnvironmentManager.ruby_version_installed?(version)
+            puts "Ruby #{version} is already installed. Skipping.".blue
+          else
+            system("rbenv install #{version}")
+          end
         else
           puts 'Unknown Ruby version. Create `.ruby-version` file.'
         end
       end
 
       def self.install_ruby!(version = nil)
-        version ||= RubyEnvironmentManager.ruby_version
+        version ||= RubyEnvironmentManager.required_ruby_version
 
         if version
-          BinInstall.system!("rbenv install #{version}")
+          if RubyEnvironmentManager.ruby_version_installed?(version)
+            puts "Ruby #{version} is already installed. Skipping.".blue
+          else
+            BinInstall.system!("rbenv install #{version}")
+          end
         else
           abort('Unknown Ruby version. Create `.ruby-version` file.')
         end
+      end
+
+      def self.doctor
+        system('curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash')
+      end
+
+      def self.doctor!
+        BinInstall.system!('curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash')
+      end
+
+      def self.rehash
+        system('rbenv rehash')
+      end
+
+      def self.rehash!
+        BinInstall.system!('rbenv rehash')
+      end
+
+      def self.version
+        system('rbenv version')
+      end
+
+      def self.version!
+        BinInstall.system!('rbenv version')
       end
 
       def self.installed?

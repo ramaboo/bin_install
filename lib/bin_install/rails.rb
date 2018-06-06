@@ -51,9 +51,12 @@ module BinInstall
     end
 
     def self.rails5?
-      true
-      # FIX
-      ::Rails::VERSION::MAJOR >= 5
+      begin
+        require 'rails'
+        ::Rails::VERSION::MAJOR >= 5
+      rescue LoadError
+        false
+      end
     end
   end
 end
