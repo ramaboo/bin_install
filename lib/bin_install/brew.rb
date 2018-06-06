@@ -9,6 +9,7 @@ module BinInstall
         puts 'Homebrew is required.'.red
         puts 'Visit https://brew.sh/ for more information.'
         ask!
+        abort('Can not continue without Homebrew.'.red) unless installed?
       end
     end
 
