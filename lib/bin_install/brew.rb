@@ -3,6 +3,11 @@ require 'bin_install/brew/cask'
 module BinInstall
   module Brew
     def self.require!
+      puts 'd1'
+      system 'source ~./zshrc'
+
+      puts 'd2'
+      abort('stop')
       if installed?
         update!
       else

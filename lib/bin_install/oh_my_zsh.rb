@@ -42,7 +42,8 @@ module BinInstall
       system 'echo $0'
       puts 'done'
 
-      puts `zsh -c "echo $0"`
+      system `zsh -c "echo $0"`
+      system `zsh -c "echo $SHELL"`
       `echo $0` == 'zsh'
     end
   end
