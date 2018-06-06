@@ -8,9 +8,7 @@ module BinInstall
       else
         puts 'Homebrew is required.'.red
         puts 'Visit https://brew.sh/ for more information.'
-        puts 'Install: `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`'
         ask!
-        restart_install!
       end
     end
 
@@ -22,11 +20,6 @@ module BinInstall
     def self.install!
       puts 'Installing Homebrew...'.white
       BinInstall.system!('/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
-    end
-
-    def self.restart_install!
-      puts 'Installer must be restarted!'
-      abort('Run: `$ bin/install`')
     end
 
     def self.ask
