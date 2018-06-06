@@ -7,13 +7,17 @@ module BinInstall
     def self.install
       puts 'Installing Oh My Zsh...'.white
       system('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"')
+      puts 'h1'
       system('zsh')
+      puts 'h2'
     end
 
     def self.install!
       puts 'Installing Oh My Zsh...'.white
       BinInstall.system!('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"')
+      puts 'e1'
       BinInstall.system!('zsh')
+      puts 'e2'
     end
 
     def self.installed?
