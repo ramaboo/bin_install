@@ -20,15 +20,17 @@ module BinInstall
       system("which #{executable}")
     end
 
-    def self.append_to_profile(value)
-      file = File.open(Shell.profile, 'a+')
-      contents = file.read
-      file << value unless contents.include?(value)
+    def self.append_to_profiles(value)
+      profile_filenames.each |filename| do
+        file = File.open(filename, 'a+')
+        contents = file.read
+        file << value unless contents.include?(value)
+        file.close
+      end
     end
 
-    def self.profile
-      # TODO: Support .bash_profile as well.
-      File.expand_path('~/.zshrc')
+    def self.profile_filenames
+      [File.expand_path('~/.zshrc'), File.expand_path('.bash_profile')]
     end
   end
 end
