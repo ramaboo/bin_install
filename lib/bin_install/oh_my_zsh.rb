@@ -36,6 +36,11 @@ module BinInstall
       puts `echo $SHELL`
       puts 'foo'
       puts `echo $0`
+
+      puts 'now system'
+      system 'echo $SHELL'
+      system 'echo $0'
+      puts 'done'
       `echo $0` == 'zsh'
     end
   end
