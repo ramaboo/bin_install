@@ -3,8 +3,6 @@ require 'bin_install/brew/cask'
 module BinInstall
   module Brew
     def self.require!
-      system('gem list')
-      abort('stop')
       if installed?
         update!
       else
