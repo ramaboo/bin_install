@@ -4,7 +4,7 @@ module BinInstall
   module Brew
     def self.require!
       puts 'd1'
-      system 'source ~./zshrc'
+      system 'source /Users/david/.zshrc'
 
       puts 'd2'
       abort('stop')
