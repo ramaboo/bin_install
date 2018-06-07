@@ -1,7 +1,7 @@
 module BinInstall
   module Atom
     # https://atom.io/packages/list?direction=desc&sort=downloads
-    COMMON_PACKAGES = %w(file-icons minimap atom-beautify linter linter-ui-default pigments git-plus busy-signal linter-eslint react)
+    COMMON_PACKAGES = %w[file-icons minimap atom-beautify linter linter-ui-default pigments git-plus busy-signal linter-eslint react].freeze
 
     def self.install
       if installed?

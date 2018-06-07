@@ -50,7 +50,7 @@ module BinInstall
         puts 'Close this window and restart installer with:'
         puts '$ gem install bin_install'.white
         puts '$ bin/install'.white
-        abort()
+        abort('Can not continue until shell is reloaded.')
       end
 
       def self.install_ruby(version = nil)

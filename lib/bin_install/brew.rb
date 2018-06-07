@@ -1,4 +1,5 @@
 require 'bin_install/brew/cask'
+require 'bin_install/brew/service'
 
 module BinInstall
   module Brew

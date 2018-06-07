@@ -1,7 +1,7 @@
 module BinInstall
   module Shell
     def self.yes?(value)
-      ['y', 'yes'].include?(value.downcase)
+      %w[y yes].include?(value.downcase)
     end
 
     def self.default_yes?(value)
@@ -9,7 +9,7 @@ module BinInstall
     end
 
     def self.no?(value)
-      ['n', 'no'].include?(value.downcase)
+      %w[n no].include?(value.downcase)
     end
 
     def self.default_no?(value)
@@ -23,14 +23,12 @@ module BinInstall
     def self.append_to_profiles(value)
       profile_paths.each do |path|
         file = File.open(path, 'a+')
-        contents = file.read
 
-        if contents.include?(value)
-          puts "Writing to #{path}:\n"
-          puts value.to_s.white
-          file << value.to_s
+        if file.read.include?(value)
+          puts "Value already exist in #{path}. Skipping.".blue
         else
-          puts "String found in #{path}. Skipping.".blue
+          puts "Writing to #{path}:\n#{value.to_s.purple}"
+          file << value.to_s
         end
 
         file.close
