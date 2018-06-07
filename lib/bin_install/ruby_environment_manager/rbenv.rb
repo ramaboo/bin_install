@@ -1,28 +1,56 @@
 module BinInstall
   module RubyEnvironmentManager
     module Rbenv
-      def self.install(version = nil)
+      def self.install
+        if installed?
+          puts 'rbenv is already installed. Skipping.'.blue
+          Brew.upgrade_package('rbenv')
+          Brew.install_or_upgrade('ruby-build')
+        else
+          first_install!
+        end
+      end
+
+      def self.install!
+        if installed?
+          puts 'rbenv is already installed. Skipping.'.blue
+          Brew.upgrade_package!('rbenv')
+          Brew.install_or_upgrade!('ruby-build')
+        else
+          first_install!
+        end
+      end
+
+      def self.first_install
         puts 'Installing rbenv...'.white
-        Brew.install_or_upgrade('rbenv')
+        Brew.install_package('rbenv')
         Brew.install_or_upgrade('ruby-build')
         Shell.append_to_profiles(%{eval "$(rbenv init -)"\n})
 
-        install_ruby(version)
         version
         rehash
         doctor
+        reload_shell!
       end
 
-      def self.install!(version = nil)
+      def self.first_install!
         puts 'Installing rbenv...'.white
-        Brew.install_or_upgrade!('rbenv')
+        Brew.install_package!('rbenv')
         Brew.install_or_upgrade!('ruby-build')
         Shell.append_to_profiles(%{eval "$(rbenv init -)"\n})
 
-        install_ruby!(version)
         version!
         rehash!
         doctor!
+        reload_shell!
+      end
+
+      def self.reload_shell!
+        puts 'Shell must be reloaded.'.red
+        puts 'Close this window and restart installer with:'
+        puts '$ gem install bin_install'.bright
+        puts '$ bin/install'.bright
+        abort()
       end
 
       def self.install_ruby(version = nil)
@@ -35,7 +63,7 @@ module BinInstall
             system("rbenv install #{version}")
           end
         else
-          puts 'Unknown Ruby version. Create `.ruby-version` file.'
+          puts 'Unknown Ruby version. Create .ruby-version file.'
         end
       end
 
@@ -49,7 +77,7 @@ module BinInstall
             BinInstall.system!("rbenv install #{version}")
           end
         else
-          abort('Unknown Ruby version. Create `.ruby-version` file.')
+          abort('Unknown Ruby version. Create .ruby-version file.')
         end
       end
 

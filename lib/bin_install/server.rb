@@ -8,9 +8,9 @@ module BinInstall
         server_pid = `cat tmp/pids/server.pid`
 
         if system("kill -9 #{server_pid}")
-          puts "PID `#{server_pid}` killed.".green
+          puts "PID #{server_pid} killed.".green
         else
-          puts "PID `#{server_pid}` can not be killed!".red
+          puts "PID #{server_pid} can not be killed!".red
         end
       end
     end
@@ -23,9 +23,9 @@ module BinInstall
         server_pid = `cat tmp/pids/server.pid`
 
         if system("kill -9 #{server_pid}")
-          puts "PID `#{server_pid}` killed.".green
+          puts "PID #{server_pid} killed.".green
         else
-          abort("PID `#{server_pid}` can not be killed!".red)
+          abort("PID #{server_pid} can not be killed!".red)
         end
       end
     end

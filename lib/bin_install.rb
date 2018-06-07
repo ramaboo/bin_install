@@ -18,7 +18,7 @@ require 'bin_install/xcode'
 
 module BinInstall
   def self.system!(*args)
-    system(*args) || abort("Command `#{args}` failed!".red)
+    system(*args) || abort("Command #{args} failed!".red)
   end
 
   def app_name

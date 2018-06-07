@@ -21,22 +21,23 @@ module BinInstall
     end
 
     def self.append_to_profiles(value)
-      profile_filenames.each do |filename|
-
-
-        file = File.open(filename, 'a+')
+      profile_paths.each do |path|
+        file = File.open(path, 'a+')
         contents = file.read
+
         if contents.include?(value)
-          puts "Writing `#{value}` to #{filename}."
+          puts "Writing to #{path}:\n"
+          puts value
           file << value unless
         else
-          puts "Skipping write to #{filename}. `#{value}` already exists.".blue
+          puts "String found in #{path}. Skipping.".blue
         end
+
         file.close
       end
     end
 
-    def self.profile_filenames
+    def self.profile_paths
       [File.expand_path('~/.zshrc'), File.expand_path('.bash_profile')]
     end
   end
