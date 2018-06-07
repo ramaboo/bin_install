@@ -27,8 +27,8 @@ module BinInstall
 
         if contents.include?(value)
           puts "Writing to #{path}:\n"
-          puts value
-          file << value unless
+          puts value.to_s.white
+          file << value.to_s
         else
           puts "String found in #{path}. Skipping.".blue
         end

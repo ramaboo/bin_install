@@ -48,8 +48,8 @@ module BinInstall
       def self.reload_shell!
         puts 'Shell must be reloaded.'.red
         puts 'Close this window and restart installer with:'
-        puts '$ gem install bin_install'.bright
-        puts '$ bin/install'.bright
+        puts '$ gem install bin_install'.white
+        puts '$ bin/install'.white
         abort()
       end
 

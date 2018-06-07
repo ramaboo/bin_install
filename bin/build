@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'awesome_print'
+require 'bin_install'
+
+puts "Building bin_install #{BinInstall::VERSION}.".white
+system('git pull origin master')
+system('gem build bin_install.gemspec')
+system("gem install bin_install-#{BinInstall::VERSION}.gem")
