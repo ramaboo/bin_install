@@ -22,9 +22,16 @@ module BinInstall
 
     def self.append_to_profiles(value)
       profile_filenames.each do |filename|
+
+
         file = File.open(filename, 'a+')
         contents = file.read
-        file << value unless contents.include?(value)
+        if contents.include?(value)
+          puts "Writing `#{value}` to #{filename}."
+          file << value unless
+        else
+          puts "Skipping write to #{filename}. `#{value}` already exists.".blue
+        end
         file.close
       end
     end
