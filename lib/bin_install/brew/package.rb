@@ -50,11 +50,11 @@ module BinInstall
       end
 
       def self.link(package)
-        system("brew link #{package}")
+        system("brew link #{package} --force")
       end
 
       def self.link!(package)
-        BinInstall.system!("brew link #{package}")
+        BinInstall.system!("brew link #{package} --force")
       end
 
       def self.installed?(package)

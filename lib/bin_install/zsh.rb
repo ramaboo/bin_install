@@ -8,36 +8,14 @@ module BinInstall
 
     def self.install
       puts 'Installing Zsh...'.white
-      print_reload_warning
-      if continue?
-        Brew::Package.install_or_upgrade('zsh')
-        Brew::Package.install_or_upgrade('zsh-completions')
-      else
-        abort('Warning Zsh install stopped by user.'.red)
-      end
+      Brew::Package.install_or_upgrade('zsh')
+      Brew::Package.install_or_upgrade('zsh-completions')
     end
 
     def self.install!
-      puts 'Installing Oh My Zsh...'.white
-      print_reload_warning
-      if continue?
-        Brew::Package.install_or_upgrade('zsh')
-        Brew::Package.install_or_upgrade('zsh-completions')
-      else
-        abort('Warning Zsh install stopped by user.'.red)
-      end
-    end
-
-    def self.print_reload_warning
-      puts 'Warning Zsh requires reloading the shell.'.yellow
-      puts 'After Zsh finishes installing you may need to rerun the installer with:'
-      puts '$ gem install bin_install'.cyan
-      puts '$ bin/install'.cyan
-    end
-
-    def self.continue?
-      print 'Would you like to continue? [Y/n]: '
-      Shell.default_yes?(gets.chomp)
+      puts 'Installing Zsh...'.white
+      Brew::Package.install_or_upgrade('zsh')
+      Brew::Package.install_or_upgrade('zsh-completions')
     end
 
     def self.installed?

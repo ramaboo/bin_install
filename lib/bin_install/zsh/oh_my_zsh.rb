@@ -7,12 +7,37 @@ module BinInstall
 
       def self.install
         puts 'Installing Oh My Zsh...'.white
-        system(%(sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"))
+        print_reload_warning
+        if continue?
+          system(%(sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"))
+        else
+          abort('Oh My Zsh installation aborted by user.'.red)
+        end
       end
 
       def self.install!
         puts 'Installing Oh My Zsh...'.white
-        BinInstall.system!(%(sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"))
+        print_reload_warning
+        if continue?
+          BinInstall.system!(%(sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"))
+        else
+          abort('Oh My Zsh installation aborted by user.'.red)
+        end
+      end
+
+      def self.print_reload_warning
+        return if installed?
+        puts 'Warning Oh My Zsh requires reloading the shell.'.yellow
+        puts 'After Oh My Zsh finishes installing you must restart your shell!'.red
+        puts 'Rerun the installer with:'
+        puts '$ gem install bin_install'.cyan
+        puts '$ bin/install'.cyan
+      end
+
+      def self.continue?
+        return true if installed?
+        print 'Would you like to continue? [Y/n]: '
+        Shell.default_yes?(gets.chomp)
       end
 
       def self.installed?

@@ -1,5 +1,5 @@
 module BinInstall
-  module Brew
+  module Atom
     module Package
       # https://atom.io/packages/list?direction=desc&sort=downloads
       POPULAR_PACKAGES = %w[file-icons minimap atom-beautify linter linter-ui-default pigments git-plus busy-signal linter-eslint react].freeze
