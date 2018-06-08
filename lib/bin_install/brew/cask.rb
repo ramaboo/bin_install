@@ -1,11 +1,11 @@
 module BinInstall
   module Brew
     module Cask
-      def self.install_package(package)
+      def self.install(package)
         system("brew cask install #{package}")
       end
 
-      def self.install_package!(package)
+      def self.install!(package)
         BinInstall.system!("brew cask install #{package}")
       end
 

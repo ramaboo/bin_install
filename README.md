@@ -36,9 +36,9 @@ Ask before installing [Atom](https://atom.io/):
 
     BinInstall::Atom.ask # or ask!
 
-Ask before installing common [packages](https://atom.io/packages):
+Ask before installing popular [packages](https://atom.io/packages):
 
-    BinInstall::Atom.ask_install_common_packages # or ask_install_common_packages!
+    BinInstall::Atom::Package.ask_popular # or ask_popular!
 
 ### Brew
 

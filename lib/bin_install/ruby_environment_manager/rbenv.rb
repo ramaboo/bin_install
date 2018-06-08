@@ -4,7 +4,7 @@ module BinInstall
       def self.install
         if installed?
           puts 'rbenv is already installed. Skipping.'.blue
-          Brew.upgrade_package('rbenv')
+          Brew::Package.upgrade('rbenv')
           Brew::Package.install_or_upgrade('ruby-build')
         else
           first_install
@@ -14,7 +14,7 @@ module BinInstall
       def self.install!
         if installed?
           puts 'rbenv is already installed. Skipping.'.blue
-          Brew.upgrade_package!('rbenv')
+          Brew::Package.upgrade!('rbenv')
           Brew::Package.install_or_upgrade!('ruby-build')
         else
           first_install!
