@@ -48,7 +48,6 @@ module BinInstall
       def self.reload_shell!
         puts 'Warning rbenv requires reloading the shell'.yellow
         puts 'Close this shell and rerun the installer with:'.red
-        puts '$ gem install bin_install'.cyan
         puts '$ bin/install'.cyan
         abort('Can not continue.'.red)
       end

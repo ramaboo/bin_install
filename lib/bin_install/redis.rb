@@ -3,11 +3,13 @@ module BinInstall
     def self.install
       puts 'Installing Redis...'.white
       Brew::Package.install_or_upgrade('redis')
+      Brew::Service.start!('redis')
     end
 
     def self.install!
       puts 'Installing Redis...'.white
       Brew::Package.install_or_upgrade!('redis')
+      Brew::Service.start!('redis')
     end
 
     def self.installed?

@@ -30,7 +30,6 @@ module BinInstall
         puts 'Warning Oh My Zsh requires reloading the shell.'.yellow
         puts 'After Oh My Zsh finishes installing you must restart your shell!'.red
         puts 'Rerun the installer with:'
-        puts '$ gem install bin_install'.cyan
         puts '$ bin/install'.cyan
       end
 
