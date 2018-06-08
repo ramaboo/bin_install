@@ -8,12 +8,14 @@ module BinInstall
       puts 'Installing Oh My Zsh...'.white
       Brew::Package.install('zsh')
       Brew::Package.install('zsh-completions')
+      system(%(sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"))
     end
 
     def self.install!
       puts 'Installing Oh My Zsh...'.white
       Brew::Package.install!('zsh')
       Brew::Package.install!('zsh-completions')
+      BinInstall.system!(%(sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"))
     end
 
     def self.installed?
