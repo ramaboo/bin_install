@@ -55,7 +55,7 @@ module BinInstall
     end
 
     def self.find_environment_manager!
-      find_environment_manager || abort('No Ruby environment manager found.')
+      find_environment_manager || abort('No Ruby environment manager found.'.red)
     end
   end
 end

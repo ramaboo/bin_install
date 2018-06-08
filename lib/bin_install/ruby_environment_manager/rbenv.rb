@@ -50,7 +50,7 @@ module BinInstall
         puts 'Close this window and restart installer with:'
         puts '$ gem install bin_install'.white
         puts '$ bin/install'.white
-        abort('Can not continue until shell is reloaded.')
+        abort('Can not continue until shell is reloaded.'.red)
       end
 
       def self.install_ruby(version = nil)
@@ -77,7 +77,7 @@ module BinInstall
             BinInstall.system!("rbenv install #{version}")
           end
         else
-          abort('Unknown Ruby version. Create .ruby-version file.')
+          abort('Unknown Ruby version. Create .ruby-version file.'.red)
         end
       end
 
