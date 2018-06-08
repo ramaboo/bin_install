@@ -11,5 +11,9 @@ module BinInstall
       BinInstall.system!('gem install bundler --conservative')
       BinInstall.system!('bundle install')
     end
+
+    def self.installed?
+      Shell.executable_exists?('gem')
+    end
   end
 end

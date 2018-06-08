@@ -25,5 +25,9 @@ module BinInstall
     def self.create_user!(username = 'postgres')
       BinInstall.system!("createuser #{username}")
     end
+
+    def self.installed?
+      Shell.executable_exists?('psql')
+    end
   end
 end

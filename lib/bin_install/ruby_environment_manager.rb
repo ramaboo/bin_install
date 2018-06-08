@@ -49,10 +49,13 @@ module BinInstall
       ruby_version.start_with?("ruby #{version}")
     end
 
-    def self.find_environment_manager!
+    def self.find_environment_manager
       return :rbenv if RubyEnvironmentManager::Rbenv.installed?
       return :rvm if RubyEnvironmentManager::Rvm.installed?
-      abort('No Ruby environment manager found.')
+    end
+
+    def self.find_environment_manager!
+      find_environment_manager || abort('No Ruby environment manager found.')
     end
   end
 end

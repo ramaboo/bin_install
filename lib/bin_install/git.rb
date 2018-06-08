@@ -29,5 +29,9 @@ module BinInstall
     def self.remote?(name)
       system("git remote get-url #{name}")
     end
+
+    def self.installed?
+      Shell.executable_exists?('git')
+    end
   end
 end

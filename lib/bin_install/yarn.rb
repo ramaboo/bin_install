@@ -15,5 +15,9 @@ module BinInstall
     def self.upgrade!
       BinInstall.system!('bin/yarn upgrade')
     end
+
+    def self.installed?
+      Shell.executable_exists?('yarn')
+    end
   end
 end

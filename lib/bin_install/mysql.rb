@@ -29,5 +29,9 @@ module BinInstall
       BinInstall.system!(%(mysql --user=root --execute="CREATE USER '#{username}'@'localhost' IDENTIFIED BY '#{password}';"))
       BinInstall.system!(%(mysql --user=root --execute="GRANT ALL PRIVILEGES ON *.* TO '#{username}'@'localhost' WITH GRANT OPTION;"))
     end
+
+    def self.installed?
+      Shell.executable_exists?('mysql')
+    end
   end
 end
