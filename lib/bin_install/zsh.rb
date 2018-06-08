@@ -30,7 +30,7 @@ module BinInstall
 
     def self.print_reload_warning
       puts 'Warning Zsh requires reloading the shell.'.yellow
-      puts 'After Zsh finishes installing you may to rerun the installer with:'
+      puts 'After Zsh finishes installing you may need to rerun the installer with:'
       puts '$ gem install bin_install'.cyan
       puts '$ bin/install'.cyan
     end

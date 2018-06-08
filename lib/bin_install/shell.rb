@@ -36,7 +36,7 @@ module BinInstall
     end
 
     def self.profile_paths
-      [File.expand_path('~/.zshrc'), File.expand_path('.bash_profile')]
+      [File.expand_path('~/.zshrc'), File.expand_path('~/.bash_profile')]
     end
   end
 end

@@ -9,6 +9,14 @@ module BinInstall
         BinInstall.system!("brew install #{package}")
       end
 
+      def self.uninstall(package)
+        system("brew uninstall #{package}")
+      end
+
+      def self.uninstall!(package)
+        BinInstall.system!("brew uninstall #{package}")
+      end
+
       def self.upgrade(package)
         if latest_version?(package)
           puts "#{package} is already the latest version. Skipping.".blue
@@ -39,6 +47,14 @@ module BinInstall
         else
           install!(package)
         end
+      end
+
+      def self.link(package)
+        system("brew link #{package}")
+      end
+
+      def self.link!(package)
+        BinInstall.system!("brew link #{package}")
       end
 
       def self.installed?(package)
