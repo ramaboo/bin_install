@@ -12,6 +12,7 @@ Dir.chdir(APP_ROOT) do
   BinInstall::Gem.install!
   BinInstall::Git.install
   BinInstall::Node.install
+  BinInstall::Yarn.install
   BinInstall::Redis.install
   BinInstall::Rails.db_setup
   BinInstall::Rails.clear

@@ -1,15 +1,13 @@
 module BinInstall
   module Node
     def self.install
+      puts 'Installing Node.js...'.white
       Brew::Package.install_or_upgrade('node')
-      Brew::Package.install_or_upgrade('yarn')
-      Yarn.install
     end
 
     def self.install!
+      puts 'Installing Node.js...'.white
       Brew::Package.install_or_upgrade!('node')
-      Brew::Package.install_or_upgrade!('yarn')
-      Yarn.install!
     end
 
     def self.installed?

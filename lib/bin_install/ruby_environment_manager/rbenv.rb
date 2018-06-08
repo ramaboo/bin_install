@@ -30,7 +30,7 @@ module BinInstall
         version
         rehash
         doctor
-        reload_shell!
+        puts 'First install done **************************'
       end
 
       def self.first_install!
@@ -42,7 +42,6 @@ module BinInstall
         version!
         rehash!
         doctor!
-        reload_shell!
       end
 
       def self.reload_shell!
@@ -54,12 +53,14 @@ module BinInstall
 
       def self.install_ruby(version = nil)
         version ||= RubyEnvironmentManager.required_ruby_version
+        puts "Installing Ruby #{version}...".white
 
         if version
           if RubyEnvironmentManager.ruby_version_installed?(version)
             puts "Ruby #{version} is already installed. Skipping.".blue
           else
             system("rbenv install #{version}")
+            reload_shell!
           end
         else
           puts 'Unknown Ruby version. Create .ruby-version file.'
@@ -68,12 +69,14 @@ module BinInstall
 
       def self.install_ruby!(version = nil)
         version ||= RubyEnvironmentManager.required_ruby_version
+        puts "Installing Ruby #{version}...".white
 
         if version
           if RubyEnvironmentManager.ruby_version_installed?(version)
             puts "Ruby #{version} is already installed. Skipping.".blue
           else
             BinInstall.system!("rbenv install #{version}")
+            reload_shell!
           end
         else
           abort('Unknown Ruby version. Create .ruby-version file.'.red)

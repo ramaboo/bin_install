@@ -1,19 +1,23 @@
 module BinInstall
   module Yarn
     def self.install
-      system('bin/yarn install')
+      puts 'Installing Yarn...'.white
+      Brew::Package.install_or_upgrade('yarn')
+      system('yarn install')
     end
 
     def self.install!
-      BinInstall.system!('bin/yarn install')
+      puts 'Installing Yarn...'.white
+      Brew::Package.install_or_upgrade!('yarn')
+      BinInstall.system!('yarn install')
     end
 
     def self.upgrade
-      system('bin/yarn upgrade')
+      system('yarn upgrade')
     end
 
     def self.upgrade!
-      BinInstall.system!('bin/yarn upgrade')
+      BinInstall.system!('yarn upgrade')
     end
 
     def self.installed?
