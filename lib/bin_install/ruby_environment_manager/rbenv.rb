@@ -7,7 +7,7 @@ module BinInstall
           Brew.upgrade_package('rbenv')
           Brew::Package.install_or_upgrade('ruby-build')
         else
-          first_install!
+          first_install
         end
       end
 
