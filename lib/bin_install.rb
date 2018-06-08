@@ -15,6 +15,7 @@ require 'bin_install/server'
 require 'bin_install/shell'
 require 'bin_install/version'
 require 'bin_install/xcode'
+require 'bin_install/yarn'
 
 module BinInstall
   def self.system!(*args)

@@ -5,7 +5,7 @@ module BinInstall
         if installed?
           puts 'rbenv is already installed. Skipping.'.blue
           Brew.upgrade_package('rbenv')
-          Brew.install_or_upgrade('ruby-build')
+          Brew::Package.install_or_upgrade('ruby-build')
         else
           first_install!
         end
@@ -15,7 +15,7 @@ module BinInstall
         if installed?
           puts 'rbenv is already installed. Skipping.'.blue
           Brew.upgrade_package!('rbenv')
-          Brew.install_or_upgrade!('ruby-build')
+          Brew::Package.install_or_upgrade!('ruby-build')
         else
           first_install!
         end
@@ -23,8 +23,8 @@ module BinInstall
 
       def self.first_install
         puts 'Installing rbenv...'.white
-        Brew.install_package('rbenv')
-        Brew.install_or_upgrade('ruby-build')
+        Brew::Package.install('rbenv')
+        Brew::Package.install_or_upgrade('ruby-build')
         Shell.append_to_profiles(%{eval "$(rbenv init -)"\n})
 
         version
@@ -35,8 +35,8 @@ module BinInstall
 
       def self.first_install!
         puts 'Installing rbenv...'.white
-        Brew.install_package!('rbenv')
-        Brew.install_or_upgrade!('ruby-build')
+        Brew::Package.install!('rbenv')
+        Brew::Package.install_or_upgrade!('ruby-build')
         Shell.append_to_profiles(%{eval "$(rbenv init -)"\n})
 
         version!

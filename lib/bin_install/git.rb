@@ -2,12 +2,12 @@ module BinInstall
   module Git
     def self.install
       puts 'Installing Git...'.white
-      Brew.install_or_upgrade('git')
+      Brew::Package.install_or_upgrade('git')
     end
 
     def self.install!
       puts 'Installing Git...'.white
-      Brew.install_or_upgrade!('git')
+      Brew::Package.install_or_upgrade!('git')
     end
 
     def self.add_remote(name, url)

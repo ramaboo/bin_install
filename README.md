@@ -52,15 +52,15 @@ Update [Homebrew](https://brew.sh/):
 
 Install [Homebrew](https://brew.sh/) package:
 
-    BinInstall::Brew.install_package('package') # or install_package!('package')
+    BinInstall::Brew::Package.install('package') # or install!('package')
 
 Upgrade [Homebrew](https://brew.sh/) package:
 
-    BinInstall::Brew.upgrade_package('package') # upgrade_package!('package')
+    BinInstall::Brew::Package.upgrade('package') # upgrade!('package')
 
 Install or Upgrade with one command:
 
-    BinInstall::Brew.install_or_upgrade('package') # or install_or_upgrade!('package')
+    BinInstall::Brew::Package.install_or_upgrade('package') # or install_or_upgrade!('package')
 
 ### Gem
 
