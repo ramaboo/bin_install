@@ -9,13 +9,11 @@ module BinInstall
     def self.install
       puts 'Installing Zsh...'.white
       Brew::Package.install_or_upgrade('zsh')
-      Brew::Package.install_or_upgrade('zsh-completions')
     end
 
     def self.install!
       puts 'Installing Zsh...'.white
       Brew::Package.install_or_upgrade('zsh')
-      Brew::Package.install_or_upgrade('zsh-completions')
     end
 
     def self.installed?

@@ -14,6 +14,7 @@ module BinInstall
       if remote?(name)
         puts "Remote #{name} already exists. Skipping.".blue
       else
+        puts "Adding remote #{name} for #{url}...".white
         system("git remote add #{name} #{url}")
       end
     end
@@ -22,6 +23,7 @@ module BinInstall
       if remote?(name)
         puts "Remote #{name} already exists. Skipping.".blue
       else
+        puts "Adding remote #{name} for #{url}...".white
         BinInstall.system!("git remote add #{name} #{url}")
       end
     end

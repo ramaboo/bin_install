@@ -4,6 +4,7 @@ require 'bin_install/brew/service'
 
 module BinInstall
   module Brew
+    INSTALL = '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'.freeze
     def self.require!
       if installed?
         update!
@@ -17,12 +18,12 @@ module BinInstall
 
     def self.install
       puts 'Installing Homebrew...'.white
-      system('/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
+      system(INSTALL)
     end
 
     def self.install!
       puts 'Installing Homebrew...'.white
-      BinInstall.system!('/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
+      BinInstall.system!(INSTALL)
     end
 
     def self.ask

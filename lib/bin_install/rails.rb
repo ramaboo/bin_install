@@ -1,42 +1,42 @@
 module BinInstall
   module Rails
     def self.db_create(environment = 'development')
-      puts 'Creating database...'.white
+      puts "Creating database for #{environment}...".white
       rails_or_rake("db:create RAILS_ENV=#{environment}")
     end
 
     def self.db_create!(environment = 'development')
-      puts 'Creating database...'.white
+      puts "Creating database for #{environment}...".white
       rails_or_rake!("db:create RAILS_ENV=#{environment}")
     end
 
     def self.db_migrate(environment = 'development')
-      puts 'Migrating database...'.white
+      puts "Migrating database for #{environment}...".white
       rails_or_rake("db:migrate RAILS_ENV=#{environment}")
     end
 
     def self.db_migrate!(environment = 'development')
-      puts 'Migrating database...'.white
+      puts "Migrating database for #{environment}...".white
       rails_or_rake!("db:migrate RAILS_ENV=#{environment}")
     end
 
     def self.db_reset(environment = 'development')
-      puts 'Resetting database...'.white
+      puts "Resetting database for #{environment}...".white
       rails_or_rake("db:reset RAILS_ENV=#{environment}")
     end
 
     def self.db_reset!(environment = 'development')
-      puts 'Resetting database...'.white
+      puts "Resetting database for #{environment}...".white
       rails_or_rake!("db:reset RAILS_ENV=#{environment}")
     end
 
     def self.db_setup(environment = 'development')
-      puts 'Preparing database...'.white
+      puts "Preparing database for #{environment}...".white
       rails_or_rake("db:setup RAILS_ENV=#{environment}")
     end
 
     def self.db_setup!(environment = 'development')
-      puts 'Preparing database...'.white
+      puts "Preparing database for #{environment}...".white
       rails_or_rake!("db:setup RAILS_ENV=#{environment}")
     end
 

@@ -1,14 +1,16 @@
 module BinInstall
   module Ruby
     module Rbenv
+      DOCTOR = 'curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash'.freeze
+
       def self.install
         puts 'Installing rbenv...'.white
         Brew::Package.install('rbenv')
         Brew::Package.install_or_upgrade('ruby-build')
         Shell.append_to_profiles(%{eval "$(rbenv init -)"\n})
-        require_doctor!
+        require_shims!
         install_ruby
-        require_doctor!
+        doctor
       end
 
       def self.install!
@@ -16,9 +18,9 @@ module BinInstall
         Brew::Package.install!('rbenv')
         Brew::Package.install_or_upgrade!('ruby-build')
         Shell.append_to_profiles!(%{eval "$(rbenv init -)"\n})
-        require_doctor!
+        require_shims!
         install_ruby!
-        require_doctor!
+        doctor!
       end
 
       def self.install_ruby(version = Ruby.required_ruby_version)
@@ -50,15 +52,15 @@ module BinInstall
       end
 
       def self.doctor
-        system('curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash')
+        system(DOCTOR)
       end
 
       def self.doctor!
-        BinInstall.system!('curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash')
+        BinInstall.system!(DOCTOR)
       end
 
-      def self.require_doctor!
-        abort_install! unless doctor
+      def self.require_shims!
+        abort_install! unless `#{DOCTOR}`.include?('Checking for rbenv shims in PATH: OK')
       end
 
       def self.abort_install!

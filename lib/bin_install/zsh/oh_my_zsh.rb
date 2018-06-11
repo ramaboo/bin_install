@@ -1,6 +1,7 @@
 module BinInstall
   module Zsh
     module OhMyZsh
+      INSTALL = %(sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)").freeze
       def self.require!
         abort('Oh My Zsh is required. Visit http://ohmyz.sh/ to install.'.red) unless installed?
       end
@@ -9,7 +10,7 @@ module BinInstall
         puts 'Installing Oh My Zsh...'.white
         print_reload_warning
         if continue?
-          system(%(sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"))
+          system(INSTALL)
         else
           abort('Oh My Zsh installation aborted by user.'.red)
         end
@@ -19,7 +20,7 @@ module BinInstall
         puts 'Installing Oh My Zsh...'.white
         print_reload_warning
         if continue?
-          BinInstall.system!(%(sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"))
+          BinInstall.system!(INSTALL)
         else
           abort('Oh My Zsh installation aborted by user.'.red)
         end
