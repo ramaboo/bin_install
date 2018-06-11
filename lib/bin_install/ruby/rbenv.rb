@@ -4,24 +4,32 @@ module BinInstall
       DOCTOR = 'curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash'.freeze
 
       def self.install
-        puts 'Installing rbenv...'.white
-        Brew::Package.install('rbenv')
-        Brew::Package.install_or_upgrade('ruby-build')
-        Shell.append_to_profiles(%{eval "$(rbenv init -)"\n})
-        require_shims!
-        install_ruby
-        doctor
+        if Ruby::Rvm.installed?
+          puts 'RVM is already installed. Skipping rbenv install.'.yellow
+        else
+          puts 'Installing rbenv...'.white
+          Brew::Package.install('rbenv')
+          Brew::Package.install_or_upgrade('ruby-build')
+          Shell.append_to_profiles(%{eval "$(rbenv init -)"\n})
+          require_shims!
+          install_ruby
+          doctor
+        end
       end
 
       def self.install!
-        puts 'Installing rbenv...'.white
-        Brew::Package.install!('rbenv')
-        Brew::Package.install_or_upgrade!('ruby-build')
-        Shell.append_to_profiles!(%{eval "$(rbenv init -)"\n})
-        require_shims!
-        install_ruby!
-        require_shims!
-        doctor!
+        if Ruby::Rvm.installed?
+          abort('RVM is already installed. Aborting rbenv install.'.red)
+        else
+          puts 'Installing rbenv...'.white
+          Brew::Package.install!('rbenv')
+          Brew::Package.install_or_upgrade!('ruby-build')
+          Shell.append_to_profiles!(%{eval "$(rbenv init -)"\n})
+          require_shims!
+          install_ruby!
+          require_shims!
+          doctor!
+        end
       end
 
       def self.install_ruby(version = Ruby.required_ruby_version)
@@ -29,7 +37,7 @@ module BinInstall
 
         if version
           if Ruby.ruby_version_installed?(version)
-            puts "Ruby #{version} is already installed. Skipping.".blue
+            puts "Ruby #{version} is already installed. Skipping Ruby #{version} install.".blue
           else
             system("rbenv install #{version}")
           end
@@ -43,7 +51,7 @@ module BinInstall
 
         if version
           if Ruby.ruby_version_installed?(version)
-            puts "Ruby #{version} is already installed. Skipping.".blue
+            puts "Ruby #{version} is already installed. Skipping Ruby #{version} install.".blue
           else
             BinInstall.system!("rbenv install #{version}")
           end

@@ -4,7 +4,7 @@ require 'bin_install/ruby/rvm'
 module BinInstall
   module Ruby
     def self.required_ruby_version
-      Dir.chdir(Dir.pwd) { `cat .ruby-version` }
+      Dir.chdir(Dir.pwd) { `cat .ruby-version` }.chop
     end
 
     def self.ruby_version

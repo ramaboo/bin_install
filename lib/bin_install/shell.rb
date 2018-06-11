@@ -25,7 +25,7 @@ module BinInstall
         file = File.open(path, 'a+')
 
         if file.read.include?(value)
-          puts "Value already exist in #{path}. Skipping.".blue
+          puts "Value already exist in #{path}. Skipping file injection.".blue
         else
           puts "Writing to #{path}:\n#{value.to_s.purple}"
           file << value.to_s

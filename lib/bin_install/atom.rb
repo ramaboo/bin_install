@@ -4,7 +4,7 @@ module BinInstall
   module Atom
     def self.install
       if installed?
-        puts 'Atom already installed. Skipping.'.blue
+        puts 'Atom already installed. Skipping Atom install.'.blue
       else
         Brew::Cask.install('atom')
       end
@@ -12,7 +12,7 @@ module BinInstall
 
     def self.install!
       if installed?
-        puts 'Atom already installed. Skipping.'.blue
+        puts 'Atom already installed. Skipping Atom install.'.blue
       else
         Brew::Cask.install!('atom')
       end

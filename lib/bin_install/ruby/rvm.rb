@@ -1,6 +1,20 @@
 module BinInstall
   module Ruby
     module Rvm
+      INSTALL = '\curl -sSL https://get.rvm.io | bash'.freeze
+
+      def self.install
+        puts 'Installing RVM...'.white
+        system(INSTALL)
+        install_ruby
+      end
+
+      def self.install!
+        puts 'Installing RVM...'.white
+        BinInstall.system!(INSTALL)
+        install_ruby!
+      end
+
       def self.install_ruby(version = nil)
         version ||= Ruby.required_ruby_version
 

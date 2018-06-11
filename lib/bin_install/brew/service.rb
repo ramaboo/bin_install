@@ -3,7 +3,7 @@ module BinInstall
     module Service
       def self.run(service)
         if started?(service)
-          puts "Service #{service} already started. Skipping.".blue
+          puts "Service #{service} already started. Skipping #{service} install.".blue
         else
           system("brew services run #{service}")
         end
@@ -11,7 +11,7 @@ module BinInstall
 
       def self.run!(service)
         if started?(service)
-          puts "Service #{service} already started. Skipping.".blue
+          puts "Service #{service} already started. Skipping #{service} install.".blue
         else
           BinInstall.system!("brew services run #{service}")
         end
@@ -19,7 +19,7 @@ module BinInstall
 
       def self.start(service)
         if started?(service)
-          puts "Service #{service} already started. Skipping.".blue
+          puts "Service #{service} already started. Skipping #{service} install.".blue
         else
           system("brew services start #{service}")
         end
@@ -27,7 +27,7 @@ module BinInstall
 
       def self.start!(service)
         if started?(service)
-          puts "Service #{service} already started. Skipping.".blue
+          puts "Service #{service} already started. Skipping #{service} install.".blue
         else
           BinInstall.system!("brew services start #{service}")
         end
@@ -35,7 +35,7 @@ module BinInstall
 
       def self.stop(service)
         if stopped?(service)
-          puts "Service #{service} already stopped. Skipping.".blue
+          puts "Service #{service} already stopped. Skipping #{service} install.".blue
         else
           system("brew services stop #{service}")
         end
@@ -43,7 +43,7 @@ module BinInstall
 
       def self.stop!(service)
         if stopped?(service)
-          puts "Service #{service} already stopped. Skipping.".blue
+          puts "Service #{service} already stopped. Skipping #{service} install.".blue
         else
           BinInstall.system!("brew services stop #{service}")
         end

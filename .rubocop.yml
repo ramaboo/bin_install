@@ -11,5 +11,8 @@ Lint/ScriptPermission:
 Metrics/LineLength:
   Max: 240
 
+Metrics/MethodLength:
+  Max: 20
+
 Style/FrozenStringLiteralComment:
   Enabled: false

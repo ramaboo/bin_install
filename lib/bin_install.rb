@@ -24,6 +24,7 @@ module BinInstall
 
   def self.finish
     puts "Finished bin_install #{VERSION}.".green
+    puts 'Warning you may need to reload your shell.'.yellow
   end
 
   def self.system!(*args)

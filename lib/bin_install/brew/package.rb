@@ -19,7 +19,7 @@ module BinInstall
 
       def self.upgrade(package)
         if latest_version?(package)
-          puts "#{package} is already the latest version. Skipping.".blue
+          puts "#{package} is already the latest version. Skipping #{package} install.".blue
         else
           system("brew upgrade #{package}")
         end
@@ -27,7 +27,7 @@ module BinInstall
 
       def self.upgrade!(package)
         if latest_version?(package)
-          puts "#{package} is already the latest version. Skipping.".blue
+          puts "#{package} is already the latest version. Skipping #{package} install.".blue
         else
           BinInstall.system!("brew upgrade #{package}")
         end
