@@ -28,7 +28,9 @@ module BinInstall
       def self.print_reload_warning
         return if installed?
         puts 'Warning Oh My Zsh requires reloading the shell.'.yellow
-        puts 'After Oh My Zsh finishes installing you must restart your shell!'.red
+        puts 'After Oh My Zsh finishes installing.'.red
+        puts 'Close this window and restart your shell session.'.red
+        puts "\n"
         puts 'Rerun the installer with:'
         puts '$ bin/install'.cyan
       end
