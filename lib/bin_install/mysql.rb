@@ -13,19 +13,23 @@ module BinInstall
     end
 
     def self.create_root
+      puts 'Creating root user for MySQL....'.white
       system("mysqladmin --user=root password ''")
     end
 
     def self.create_root!
+      puts 'Creating root user for MySQL....'.white
       BinInstall.system!("mysqladmin --user=root password ''")
     end
 
     def self.create_user(username, password = nil)
+      puts "Creating user #{username} for MySQL...".white
       system(%(mysql --user=root --execute="CREATE USER '#{username}'@'localhost' IDENTIFIED BY '#{password}';"))
       system(%(mysql --user=root --execute="GRANT ALL PRIVILEGES ON *.* TO '#{username}'@'localhost' WITH GRANT OPTION;"))
     end
 
     def self.create_user!(username, password = nil)
+      puts "Creating user #{username} for MySQL...".white
       BinInstall.system!(%(mysql --user=root --execute="CREATE USER '#{username}'@'localhost' IDENTIFIED BY '#{password}';"))
       BinInstall.system!(%(mysql --user=root --execute="GRANT ALL PRIVILEGES ON *.* TO '#{username}'@'localhost' WITH GRANT OPTION;"))
     end
