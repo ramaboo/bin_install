@@ -6,12 +6,14 @@ module BinInstall
       def self.install
         puts 'Installing RVM...'.white
         system(INSTALL)
+        system('source ~/.rvm/scripts/rvm')
         install_ruby
       end
 
       def self.install!
         puts 'Installing RVM...'.white
         BinInstall.system!(INSTALL)
+        BinInstall.system!('source ~/.rvm/scripts/rvm')
         install_ruby!
       end
 
@@ -22,7 +24,9 @@ module BinInstall
           if Ruby.ruby_version_installed?(version)
             puts "Ruby #{version} is already installed. Skipping Ruby #{version} install.".blue
           else
-            system("rvm install #{version}")
+            result = system("rvm install #{version}")
+            ap 'result 1'
+            ap result
             system("rvm use #{version}")
           end
         else
