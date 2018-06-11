@@ -3,13 +3,13 @@ module BinInstall
     def self.install
       puts 'Installing Yarn...'.white
       Brew::Package.install_or_upgrade('yarn')
-      system('yarn install')
+      system('yarn install --ignore-engines')
     end
 
     def self.install!
       puts 'Installing Yarn...'.white
       Brew::Package.install_or_upgrade!('yarn')
-      BinInstall.system!('yarn install')
+      BinInstall.system!('yarn install --ignore-engines')
     end
 
     def self.upgrade

@@ -12,4 +12,4 @@ system('git push origin master')
 system('gem build bin_install.gemspec')
 system("gem install bin_install-#{BinInstall::VERSION}.gem")
 system("gem push bin_install-#{BinInstall::VERSION}.gem")
-puts 'Done.'.green
+puts "Done. bin_install #{BinInstall::VERSION} has been released.".green
