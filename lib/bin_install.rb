@@ -20,6 +20,8 @@ require 'bin_install/zsh'
 module BinInstall
   def self.start
     puts "Starting bin_install #{VERSION}...".white
+    puts 'Your current PATH is set to: '
+    system('echo $PATH')
   end
 
   def self.finish
