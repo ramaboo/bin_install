@@ -21,8 +21,7 @@ module BinInstall
         require_doctor!
       end
 
-      def self.install_ruby(version = nil)
-        version ||= Ruby.required_ruby_version
+      def self.install_ruby(version = Ruby.required_ruby_version)
         puts "Installing Ruby #{version}...".white
 
         if version
@@ -36,8 +35,7 @@ module BinInstall
         end
       end
 
-      def self.install_ruby!(version = nil)
-        version ||= Ruby.required_ruby_version
+      def self.install_ruby!(version = Ruby.required_ruby_version)
         puts "Installing Ruby #{version}...".white
 
         if version

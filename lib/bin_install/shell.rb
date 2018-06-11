@@ -42,12 +42,14 @@ module BinInstall
     def self.wait(seconds = 10)
       print 'Please wait: '.purple
       seconds.downto(1) do |i|
-        print "#{i}".purple
+        print i.to_s.purple
         3.times do
-          sleep(1/3.0)
+          sleep(0.25)
           print '.'.purple
         end
+        sleep(0.25)
       end
+      print "\n"
     end
   end
 end
