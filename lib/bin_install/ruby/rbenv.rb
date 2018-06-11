@@ -27,7 +27,6 @@ module BinInstall
           Shell.append_to_profiles!(%{eval "$(rbenv init -)"\n})
           require_shims!
           install_ruby!
-          require_shims!
           doctor!
         end
       end

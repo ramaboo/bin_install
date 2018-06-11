@@ -6,7 +6,7 @@ module BinInstall
       def self.install
         puts 'Installing RVM...'.white
         system(INSTALL)
-        system('source ~/.rvm/scripts/rvm')
+        require_loaded!
         install_ruby
       end
 
@@ -14,6 +14,7 @@ module BinInstall
         puts 'Installing RVM...'.white
         BinInstall.system!(INSTALL)
         BinInstall.system!('source ~/.rvm/scripts/rvm')
+        require_loaded!
         install_ruby!
       end
 
@@ -24,9 +25,7 @@ module BinInstall
           if Ruby.ruby_version_installed?(version)
             puts "Ruby #{version} is already installed. Skipping Ruby #{version} install.".blue
           else
-            result = system("rvm install #{version}")
-            ap 'result 1'
-            ap result
+            system("rvm install #{version}")
             system("rvm use #{version}")
           end
         else
@@ -47,6 +46,20 @@ module BinInstall
         else
           abort('Unknown Ruby version. Create .ruby-version file.'.red)
         end
+      end
+
+      def self.require_loaded!
+        abort_install! unless installed?
+      end
+
+      def self.abort_install!
+        puts 'Warning RVM is not loaded.'.yellow
+        puts 'Try closing this window and restarting your shell session.'.yellow
+        puts "\n"
+        puts 'Rerun the installer with:'
+        puts '$ bin/install'.cyan
+        puts "\n"
+        abort('Aborting install.'.red)
       end
 
       def self.installed?
