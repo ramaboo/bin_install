@@ -6,6 +6,7 @@ APP_ROOT = File.expand_path('..', __dir__)
 Dir.chdir(APP_ROOT) do
   BinInstall::Gem.install!
   BinInstall::Yarn.install
-  BinInstall::Rails.db_migrate
+  BinInstall::Rails.db_migrate('development')
+  BinInstall::Rails.db_migrate('test')
   BinInstall::Rails.clear
 end

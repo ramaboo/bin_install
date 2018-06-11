@@ -136,11 +136,11 @@ Install [Redis](https://redis.io/) with:
 
     BinInstall::Redis.install # or install!
 
-### RubyEnvironmentManager
+### Ruby
 
 Install [rbenv](https://github.com/rbenv/rbenv) unless [RVM](https://rvm.io/) is installed with:
 
-    BinInstall::RubyEnvironmentManager.install # or install!
+    BinInstall::Ruby.install # or install!
 
 ### Server
 

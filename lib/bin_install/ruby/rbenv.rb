@@ -1,5 +1,5 @@
 module BinInstall
-  module RubyEnvironmentManager
+  module Ruby
     module Rbenv
       def self.install
         if installed?
@@ -52,11 +52,11 @@ module BinInstall
       end
 
       def self.install_ruby(version = nil)
-        version ||= RubyEnvironmentManager.required_ruby_version
+        version ||= Ruby.required_ruby_version
         puts "Installing Ruby #{version}...".white
 
         if version
-          if RubyEnvironmentManager.ruby_version_installed?(version)
+          if Ruby.ruby_version_installed?(version)
             puts "Ruby #{version} is already installed. Skipping.".blue
           else
             system("rbenv install #{version}")
@@ -68,11 +68,11 @@ module BinInstall
       end
 
       def self.install_ruby!(version = nil)
-        version ||= RubyEnvironmentManager.required_ruby_version
+        version ||= Ruby.required_ruby_version
         puts "Installing Ruby #{version}...".white
 
         if version
-          if RubyEnvironmentManager.ruby_version_installed?(version)
+          if Ruby.ruby_version_installed?(version)
             puts "Ruby #{version} is already installed. Skipping.".blue
           else
             BinInstall.system!("rbenv install #{version}")

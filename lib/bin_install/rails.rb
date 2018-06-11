@@ -1,25 +1,33 @@
 module BinInstall
   module Rails
-    def self.db_setup
+    def self.db_setup(environment = 'development')
       puts 'Preparing database...'.white
-      rails_or_rake('db:setup')
-      rails_or_rake!('db:setup RAILS_ENV=test')
+      rails_or_rake("db:setup RAILS_ENV=#{environment}")
     end
 
-    def self.db_setup!
+    def self.db_setup!(environment = 'development')
       puts 'Preparing database...'.white
-      rails_or_rake!('db:setup')
-      rails_or_rake!('db:setup RAILS_ENV=test')
+      rails_or_rake!("db:setup RAILS_ENV=#{environment}")
     end
 
-    def self.db_migrate
+    def self.db_migrate(environment = 'development')
       puts 'Migrating database...'.white
-      rails_or_rake('db:migrate')
+      rails_or_rake("db:migrate RAILS_ENV=#{environment}")
     end
 
-    def self.db_migrate!
+    def self.db_migrate!(environment = 'development')
       puts 'Migrating database...'.white
-      rails_or_rake!('db:migrate')
+      rails_or_rake!("db:migrate RAILS_ENV=#{environment}")
+    end
+
+    def self.db_reset(environment = 'development')
+      puts 'Resetting database...'.white
+      rails_or_rake("db:reset RAILS_ENV=#{environment}")
+    end
+
+    def self.db_reset!(environment = 'development')
+      puts 'Resetting database...'.white
+      rails_or_rake!("db:reset RAILS_ENV=#{environment}")
     end
 
     def self.clear

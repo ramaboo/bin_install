@@ -1,8 +1,8 @@
 module BinInstall
-  module RubyEnvironmentManager
+  module Ruby
     module Rvm
       def self.install_ruby(version = nil)
-        version ||= RubyEnvironmentManager.required_ruby_version
+        version ||= Ruby.required_ruby_version
 
         if version
           system("rvm install #{version}")
@@ -13,7 +13,7 @@ module BinInstall
       end
 
       def self.install_ruby!(version = nil)
-        version ||= RubyEnvironmentManager.required_ruby_version
+        version ||= Ruby.required_ruby_version
 
         if version
           BinInstall.system!("rvm install #{version}")
