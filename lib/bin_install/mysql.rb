@@ -4,12 +4,14 @@ module BinInstall
       puts 'Installing MySQL...'.white
       Brew::Package.install_or_upgrade('mysql')
       Brew::Service.start('mysql')
+      Shell.wait(10) # Give MySQL time to spin up.
     end
 
     def self.install!
       puts 'Installing MySQL...'.white
       Brew::Package.install_or_upgrade!('mysql')
       Brew::Service.start!('mysql')
+      Shell.wait(10) # Give MySQL time to spin up.
     end
 
     def self.create_root

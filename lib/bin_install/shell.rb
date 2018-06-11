@@ -38,5 +38,16 @@ module BinInstall
     def self.profile_paths
       [File.expand_path('~/.zshrc'), File.expand_path('~/.bash_profile')]
     end
+
+    def self.wait(seconds = 10)
+      print 'Please wait: '.purple
+      seconds.downto(1) do |i|
+        print "#{i}".purple
+        3.times do
+          sleep(1/3.0)
+          print '.'.purple
+        end
+      end
+    end
   end
 end
