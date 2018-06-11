@@ -20,6 +20,7 @@ module BinInstall
         Shell.append_to_profiles!(%{eval "$(rbenv init -)"\n})
         require_shims!
         install_ruby!
+        require_shims!
         doctor!
       end
 
@@ -64,8 +65,7 @@ module BinInstall
       end
 
       def self.abort_install!
-        puts 'Warning rbenv-doctor returned a non zero exit status.'.yellow
-        puts 'Correct the error above before continuing.'.yellow
+        puts 'Warning rbenv shims are not loaded.'.yellow
         puts 'Try closing this window and restarting your shell session.'.yellow
         puts "\n"
         puts 'Rerun the installer with:'

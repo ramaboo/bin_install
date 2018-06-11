@@ -18,6 +18,14 @@ require 'bin_install/yarn'
 require 'bin_install/zsh'
 
 module BinInstall
+  def self.start
+    puts "Starting bin_install #{VERSION}...".white
+  end
+
+  def self.finish
+    puts "Finished bin_install #{VERSION}.".green
+  end
+
   def self.system!(*args)
     system(*args) || abort("Command #{args} failed!".red)
   end
