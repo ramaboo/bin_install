@@ -30,7 +30,6 @@ module BinInstall
             puts "Ruby #{version} is already installed. Skipping.".blue
           else
             system("rbenv install #{version}")
-            reload_shell!
           end
         else
           puts 'Unknown Ruby version. Create .ruby-version file.'
@@ -46,7 +45,6 @@ module BinInstall
             puts "Ruby #{version} is already installed. Skipping.".blue
           else
             BinInstall.system!("rbenv install #{version}")
-            reload_shell!
           end
         else
           abort('Unknown Ruby version. Create .ruby-version file.'.red)
