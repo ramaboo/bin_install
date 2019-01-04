@@ -11,7 +11,7 @@ system('git pull origin master')
 system('git add --all')
 system(%(git commit -am 'Releasing #{BinInstall::VERSION}'))
 system('git push origin master')
-system("gem build #{APP_ROOT}/bin_install.gemspec")
+system("gem build #{APP_ROOT.join('bin_install.gemspec')}")
 exit
 
 system("gem install bin_install-#{BinInstall::VERSION}.gem")
