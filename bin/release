@@ -6,14 +6,14 @@ require 'bin_install'
 
 APP_ROOT = File.expand_path('..', __dir__)
 
-puts "Releasing bin_install #{BinInstall::VERSION}.".white
-system('git pull origin master')
-system('git add --all')
-system(%(git commit -am 'Releasing #{BinInstall::VERSION}'))
-system('git push origin master')
-system("gem build #{APP_ROOT.join('bin_install.gemspec')}")
-exit
-
-system("gem install bin_install-#{BinInstall::VERSION}.gem")
-system("gem push bin_install-#{BinInstall::VERSION}.gem")
-puts "Done. bin_install #{BinInstall::VERSION} has been released.".green
+Dir.chdir(APP_ROOT) do
+  puts "Releasing bin_install #{BinInstall::VERSION}.".white
+  system('git pull origin master')
+  system('git add --all')
+  system(%(git commit -am 'Releasing #{BinInstall::VERSION}'))
+  system('git push origin master')
+  system('gem build bin_install.gemspec')
+  system("gem install bin_install-#{BinInstall::VERSION}.gem")
+  system("gem push bin_install-#{BinInstall::VERSION}.gem")
+  puts "Done. bin_install #{BinInstall::VERSION} has been released.".green
+end
