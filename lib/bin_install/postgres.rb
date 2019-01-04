@@ -11,7 +11,7 @@ module BinInstall
     end
 
     def self.create_superuser(username = 'postgres')
-      puts 'Creating superuser postgres for postgresqlSQL...'.whtie
+      puts 'Creating superuser postgres for postgresqlSQL...'.white
       system("createuser --superuser #{username}")
     end
 
