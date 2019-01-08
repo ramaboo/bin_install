@@ -1,15 +1,23 @@
 module BinInstall
   module Mysql
-    def self.install
+    def self.install(version = nil)
       puts 'Installing MySQL...'.white
-      Brew::Package.install_or_upgrade('mysql')
+      if version
+        Brew::Package.install_or_upgrade("mysql@#{version}")
+      else
+        Brew::Package.install_or_upgrade('mysql')
+      end
       Brew::Service.start('mysql')
       Shell.wait(10) # Give MySQL time to spin up.
     end
 
-    def self.install!
+    def self.install!(version = nil)
       puts 'Installing MySQL...'.white
-      Brew::Package.install_or_upgrade!('mysql')
+      if version
+        Brew::Package.install_or_upgrade!("mysql@#{version}")
+      else
+        Brew::Package.install_or_upgrade!('mysql')
+      end
       Brew::Service.start!('mysql')
       Shell.wait(10) # Give MySQL time to spin up.
     end
