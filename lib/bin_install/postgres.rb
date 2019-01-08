@@ -1,13 +1,21 @@
 module BinInstall
   module Postgres
-    def self.install
+    def self.install(version = nil)
       puts 'Installing PostgreSQL...'.white
-      Brew::Package.install_or_upgrade('postgresql')
+      if version
+        Brew::Package.install_or_upgrade("postgresql@#{version}")
+      else
+        Brew::Package.install_or_upgrade('postgresql')
+      end
     end
 
-    def self.install!
+    def self.install!(version = nil)
       puts 'Installing PostgreSQL...'.white
-      Brew::Package.install_or_upgrade!('postgresql')
+      if version
+        Brew::Package.install_or_upgrade!("postgresql@#{version}")
+      else
+        Brew::Package.install_or_upgrade!('postgresql')
+      end
     end
 
     def self.create_superuser(username = 'postgres')
