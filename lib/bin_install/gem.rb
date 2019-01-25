@@ -12,6 +12,16 @@ module BinInstall
       BinInstall.system!('bundle install')
     end
 
+    def self.update
+      puts 'Updating gems...'.white
+      system('bundle update')
+    end
+
+    def self.install!
+      puts 'Updating gems...'.white
+      BinInstall.system!('bundle update')
+    end
+
     def self.installed?
       Shell.executable_exists?('gem')
     end
