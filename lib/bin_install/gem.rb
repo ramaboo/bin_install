@@ -17,7 +17,7 @@ module BinInstall
       system('bundle update')
     end
 
-    def self.install!
+    def self.update!
       puts 'Updating gems...'.white
       BinInstall.system!('bundle update')
     end
