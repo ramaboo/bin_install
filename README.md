@@ -1,5 +1,6 @@
 # BinInstall
 
+trivial
 Simple DSL for creating install scripts.
 
 It's used at [Deliv](https://www.deliv.co/) to increase developer happiness.
@@ -18,9 +19,9 @@ To create install scripts run:
 
 Will create the following files with some common defaults:
 
-  * `bin/install`
-  * `bin/update`
-  * `bin/kill`
+- `bin/install`
+- `bin/update`
+- `bin/kill`
 
 ## Bang! vs No Bang
 
@@ -86,7 +87,7 @@ Create root user with blank password:
 
 Create user with username and password:
 
-   BinInstall::Mysql.create_user('username', 'password')
+BinInstall::Mysql.create_user('username', 'password')
 
 ### Node
 
