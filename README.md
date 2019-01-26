@@ -36,7 +36,15 @@ Ask before installing [Atom](https://atom.io/):
 
     BinInstall::Atom.ask # or ask!
 
-Ask before installing popular [packages](https://atom.io/packages):
+Install Atom [packages](https://atom.io/packages):
+
+    BinInstall::Atom::Package.install(package) # or install!(package)
+
+Install popular Atom [packages](https://atom.io/packages):
+
+    BinInstall::Atom::Package.install_popular # or install_popular!
+
+Ask before installing popular Atom [packages](https://atom.io/packages):
 
     BinInstall::Atom::Package.ask_popular # or ask_popular!
 
@@ -67,6 +75,10 @@ Install or Upgrade with one command:
 Install all [gems](https://rubygems.org/) with:
 
     BinInstall::Gem.install # or install!
+
+Update all [gems](https://rubygems.org/) with:
+
+    BinInstall::Gem.update # or update!
 
 ### Git
 
